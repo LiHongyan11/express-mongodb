@@ -1,0 +1,119 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register</title>
+<link href="stylesheets/index.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div id="layout"  style="padding: 100px 0 180px 30px;">
+    <div class="register">
+        <div class="register-box">
+            <h2>Register</h2>
+            &nbsp;please input your information.
+            <br>
+            <br>
+            <form id="form">
+                <div id="register-box-name" style="margin-top:10px;">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+                </div>
+                <div id="register-box-field" style="margin-top:10px;"><input name="account" class="form-register" id='account' title="Username" value="" size="40" maxlength="2048" />
+                </div>
+                <div id="register-box-name">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
+                </div>
+                <div id="register-box-field"><input type='password' name="psd" class="form-register" id='psd' title="password" value="" size="40" maxlength="2048" />
+                </div>
+                <div id="register-box-name">确认密码：
+                </div>
+                <div id="register-box-field"><input type='password' name="psd1" class="form-register" id='psd1' title="password" value="" size="40" maxlength="2048" />
+                </div>
+                <input type="submit" value="REGISTER" name="submit" id="button">
+            </form>           
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.validate.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        jQuery.validator.addMethod("stringCheck", function(value, element) {           
+            return this.optional(element) || /^[a-zA-Z0-9_]+$/.test(value);           
+        }, "只能包括英文字母、数字和下划线"); 
+        $("#form").validate({
+            rules: {
+                account: {
+                    required: true,
+                    stringCheck:true,
+                    minlength: 2,
+                    maxlength:10
+                },
+                psd: {
+                    required: true,
+                    minlength: 5,
+                    maxlength:16
+                },
+                psd1: {
+                    required: true,
+                    minlength: 5,
+                    maxlength:16,
+                    equalTo:"#psd"
+                }
+            },
+            messages: {
+                account: {
+                    required: "Please enter a username",
+                    stringCheck: "用户名只能包括英文字母、数字和下划线",
+                    minlength: "Your username must consist of at least 2 characters",
+                    maxlength: "Your username must consist of at most 10 characters"
+                },
+                psd: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                    maxlength: "Your password must be at most 16 characters long"
+                },
+                psd1:{
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                    maxlength: "Your password must be at most 16 characters long",
+                    equalTo:'Please enter the same password as above'
+                }
+            },
+            focusInvalid: false
+        });
+        $('#button').click(function(){
+            var username = $('#account').val();
+            var password = $('#psd').val();
+            var password1 = $('#psd1').val();
+
+            if(password != password1){
+                $('#psd').css('border','1px solid red');
+                $('#psd1').css('border','1px solid red');
+            }
+            else if(password == password1){
+                var data = {'account':username,'password':password,'password1':password1};
+
+                $.ajax({
+                    url:'/register',
+                    type:'post',
+                    data:data,
+                    success:function(data,status){
+                        if(status == 'success'){
+                            if(data.code == 500){
+                                alert(data.message);
+                            }
+                            else{
+                                location.href = 'login';
+                            }                           
+                        }
+                    },
+                    error:function(data,status){
+                        alert($.parseJSON(data.responseText).message);
+                    }
+                })
+            }
+            return false;
+        })
+    })
+    </script>
+</body>
+</html>

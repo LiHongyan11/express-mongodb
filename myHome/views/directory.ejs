@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>通讯录</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body style="background-color:transparent">
+<div class="directory">
+	<div class="search">
+		<input type="text" name="search" class="searchBox">
+		<a href="javascript:;" class="searchs"><img src="/images/search.png" alt="搜索" width="30px" height="30px"></a>
+	</div>
+	<table cellspacing="0">
+		<caption>通讯录列表</caption>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>电话</th>
+				<th>删除、修改</th>
+			</tr>
+		</thead>
+		
+		<%data.forEach(function(info){%>
+			<tr>
+				<td><%=info.name%></td>
+				<td><%=info.phone%></td>
+				<td><a href="javascript:;" class="delete">删除</a><a href="javascript:;" class="update">修改</a></td>
+			</tr>
+		<%})%>
+	</table>
+	<div class="btns">
+		<input type="button" value="添加" name="add" id="add">
+	</div>
+	<form class="addBox">
+		<label>姓名：</label>
+		<input type="text" name="name" class="name">
+		<label>电话：</label>
+		<input type="text" name="phone" class="phone">
+		<input type="reset" name="cancel" class="cancel" value="取消">
+		<input type="button" name="save" class="save" value="保存">
+	</from>
+</div>
+<script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		$('.cancel').click(function(){
+			$('.addBox').css('display','none');
+		});
+		$('#add').click(function(){//添加信息
+			var directory = $('.directory');
+			$('.addBox').css('display','block');
+			$('.save').bind('click',function(){
+				var name = $('.name').val();
+				var phone = $('.phone').val();
+				var data = {'name':name,'phone':phone};
+				var obj=$(this);
+				$.ajax({
+					url:'/directory',
+					type:'post',
+					data:data,
+					success:function(data,status){
+						if(status == 'success'){
+							if(data.code == 500){
+								alert(data.message);
+							}
+							else{
+								$('.addBox').css('display','none');
+								var tr = $('<tr><td>'+name+'</td><td>'+phone+'</td><td><a href="javascript:;" class="delete">删除</a><a href="javascript:;" class="update">修改</a></td></tr>');
+								$('table').append(tr);
+								$('.name').val('');
+								$('.phone').val('');
+								obj.unbind('click');
+								alert('添加成功');
+							}
+							
+						}
+					},
+					error:function(data,status){
+						 alert($.parseJSON(data.responseText).message);
+					}
+				});
+			})
+			
+			
+			
+		});
+
+		$(document).on('click','.update',function(){//修改信息
+			$('.addBox').css('display','block');
+			var name2 = $(this).parent().prev().prev().html();
+			var that = $(this);			
+			$('.save').bind('click',function(){
+				var name = $('.name').val();
+				var phone = $('.phone').val();				
+				var data = {'name':name,'phone':phone,'name2':name2};
+				var obj = $(this);
+				$.ajax({
+					url:'/update',
+					type:'post',
+					data:data,
+					success:function(data,status){
+						if(status == 'success'){
+							$('.addBox').css('display','none');	
+							$(that).parent().prev().prev().html(name);
+							$(that).parent().prev().html(phone);
+							$('.name').val('');
+							$('.phone').val('');												
+							obj.unbind('click');
+							alert('修改成功');
+						}
+					},
+					error:function(data,status){
+						alert('修改失败');
+					}
+				});
+				return false;
+			});			
+		});
+
+		$(document).on('click','.delete',function(){//删除信息
+			var tr = $(this).parent().parent();
+			var name = $(this).parent().prev().prev().html();
+			var data = {'name':name};
+			$.ajax({
+				url:'/delete',
+				type:'post',
+				data:data,
+				success:function(data,status){
+					if(status == 'success'){
+						if(data.code == 500 || data.code == 404){
+							alert(data.message);
+						}
+						else{
+							tr.remove();
+						}						
+					}
+				},
+				error:function(data,status){
+					alert($.parseJSON(data.responseText).message);
+				}
+			})
+		})
+
+		$('.searchs').click(function(){
+			var txt = $('.searchBox').val().toLowerCase();
+			var data = {'txt':txt};
+
+			$.ajax({
+				url:'/search',
+				type:'post',
+				data:data,
+				success:function(data,status){
+					if(status == 'success'){
+						if(data.code == 500){
+							alert(data.message);
+						}
+						else{
+							var str = '';
+							for(var i=0;i<data.length;i++){
+								var tr = '<tr><td>'+data[i].name+'</td><td>'+data[i].phone+'</td><td><a href="javascript:;" class="delete">删除</a><a href="javascript:;" class="update">修改</a></td></tr>';
+								str += tr;
+							}
+							$('table tBody').html(str);
+						}
+						
+					}
+				},
+				error:function(data,status){
+					alert($.parseJSON(data.responseText).message);
+				}
+			})
+
+			return false;
+		})
+
+	})
+</script>
+</body>
+</html>

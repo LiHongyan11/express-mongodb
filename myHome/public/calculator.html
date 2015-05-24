@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>计算器</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body style="background-color:transparent">
+<div class="calculator">
+	<form>
+		<div class="groups">
+			<label>第一个数：</label>
+			<input type="text" name="first" id="first">
+		</div>
+		<div class="groups">
+			<label>第二个数：</label>
+			<input type="text" name="second" id="second">
+		</div>
+		<div class="groups">
+			<label>操作符：</label>
+			<select id="sel">
+				<option>+</option>
+				<option>-</option>
+				<option>*</option>
+				<option>/</option>
+			</select>
+		</div>
+		<div class="btns">
+			<input type="button" value="得到结果" name="btn" class="count">
+			<input type="reset" value="清除" name="reset">
+		</div>
+	</form>
+	<div class="result"></div>
+</div>
+<script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/javascripts/index.js"></script>
+<script type="text/javascript">
+	
+	$('.count').click(function(){//计算器
+		var first = parseInt($('#first').val());
+		var second = parseInt($('#second').val());
+		var type = $('#sel').val();
+		var result;
+		if(isNaN(first) || isNaN(second)){
+			alert('请输入数字');
+			return false;
+		}
+		switch(type){
+			case '+':
+				result=first + second;
+				break;
+			case '-':
+				result=first - second;
+				break;
+			case '*':
+				result=first * second
+				break;
+			case '/':
+				if(second == 0){
+					alert('第二个数不能为0');
+					return false;
+				}
+				else{
+					result=first / second;
+				}
+		}
+		$('.result').html(result);
+	});	
+</script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+*{
+	margin:0;
+	padding: 0;
+}
+body{
+	font-size: 12px;
+	font-family: Arial,'宋体';
+}
+ul li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+/*清除浮动*/
+.f-cb:after {
+ content: ".";
+ display: block;
+ height: 0;
+ visibility: hidden;
+}
+.f-cb:after {clear: both;}
+.f-cb {*zoom: 1;}
+/*登录页*/
+#layout{
+	background-color:#D0D0D0;
+	
+}
+
+#login-box {
+	width:333px;
+	height: 352px;
+	padding: 58px 76px 0 76px;
+	color: #ebebeb;
+	font: 12px Arial, Helvetica, sans-serif;
+	background: url(../images/login-box-backg.png) no-repeat left top;
+	margin: 0 auto;
+}
+#login-box span{
+	margin-left: 100px;
+}
+#login-box span a{
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: underline;
+}
+
+#login-box img {
+	border:none;
+}
+
+#login-box h2 {
+	padding:0;
+	margin:0;
+	color: #ebebeb;
+	font: bold 44px "Calibri", Arial;
+}
+
+
+#login-box-name {
+	float: left;
+	display:inline;
+	width:80px;
+	text-align: right;
+	padding: 8px 10px 0 0;
+	margin:0 0 7px 0;
+}
+
+#login-box-field {
+	float: left;
+	display:inline;
+	width:230px;
+	height: 65px;
+	margin:0;
+	margin:0 0 7px 0;
+}
+#login{
+	width: 103px;
+	height: 42px;
+	margin-left:120px;
+	margin-top:5px;
+	cursor: pointer;
+	border: none;
+	background: url(../images/login-btn.png);
+}
+
+
+.form-login  {
+	width: 205px;
+	padding: 10px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 16px;
+	color: #ebebeb;
+}
+
+
+.login-box-options  {
+	clear:both;
+	padding-left:87px;
+	font-size: 11px;
+}
+
+.login-box-options a {
+	color: #ebebeb;
+	font-size: 11px;
+}
+/*register*/
+.register{
+
+	}
+	.register-box {
+	width:390px;
+	height: 380px;
+	padding: 58px 76px 30px 76px;
+	color: #ebebeb;
+	font: 14px Arial, Helvetica, sans-serif;
+	background-image:url(../images/register.png);
+	margin:0 auto;
+	background-position-x:-15px;
+	background-position-y:-50px;
+	border-radius:10px;
+}
+#register-box img {
+	border:none;
+}
+
+.register-box h2 {
+	padding:0;
+	margin:0;
+	color: #fff;
+	font: bold 44px "Calibri", Arial;
+}
+#register-box-name {
+	float: left;
+	display:inline;
+	width:80px;
+	text-align: right;
+	padding: 14px 10px 0 0;
+	margin:0 0 10px 50px;
+}
+
+#register-box-field {
+	float: left;
+	display:inline;
+	width:230px;
+	height: 68px;
+	margin:0;
+	margin:0 0 10px 0;
+}
+
+.form-register  {
+	width: 235px;
+	padding: 10px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 16px;
+	color: #ebebeb;
+}
+
+
+#register-box-options  {
+	clear:both;
+	padding-left:87px;
+	font-size: 11px;
+}
+
+#registe-box-options a {
+	color: #ebebeb;
+	font-size: 11px;
+}
+#button {
+	background-image:url(../images/button.png);
+	display:block;
+	width:102px;
+	height:41px;
+	font-size:16px;
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
+	border-radius:6px;
+	line-height:42px;
+	text-align:center;
+	margin-left:140px;
+	border: none;
+	}
+
+/*index*/
+.g-hd{
+	position: relative;
+	margin-bottom: 15px;
+}
+.g-hd .m-bg{
+	height: 200px;
+	background: url(../images/bg.jpg) no-repeat right top;
+}
+.g-hd .m-out a{
+	position: absolute;
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+	right: 5px;
+	top: 5px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	z-index: 99;
+}
+.g-bd{
+	width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.g-bd .m-sidebar{
+	float: left;
+	width: 200px;
+	height: 600px;
+	margin-right: 10px;
+	background: #F2F2F2;
+	padding-bottom: 1000px;
+	margin-bottom: -1000px;
+}
+.g-bd .m-sidebar li{
+	line-height: 30px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+}
+.g-bd .m-main{
+	float: left;
+	width: 794px;
+	height: 600px;
+	background: #F2F2F2;
+	padding:10px 10px 1000px 10px;
+	margin-bottom: -1000px;
+}
+.g-ft{
+	text-align: center;
+	line-height: 80px;
+	background: #D4D4D4;
+	margin-top: 15px;
+}
+
+/*introduce*/
+.introduce h2{
+	text-align: center;
+	line-height: 30px;
+}
+.introduce h6{
+	font-size: 14px;
+}
+
+.introduce .base-info{
+	margin-left: 40px;
+	line-height: 25px;
+}
+.introduce .detail-info p{
+	text-indent: 2em;
+	line-height: 25px;
+}
+
+/*calculator*/
+.calculator{
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 70px;
+}
+.calculator .groups{
+	line-height: 70px;
+}
+.calculator .groups label{
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+	width: 100px;
+	text-align: right;
+}
+.calculator .groups select{
+	width: 364px;
+	height: 35px;
+}
+.calculator .groups input{
+	width: 350px;
+	height: 20px;
+	padding:5px;
+}
+.calculator .btns{
+	width: 250px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.calculator .btns input{
+	border: none;
+	background: #ccc;
+	width: 80px;
+	line-height: 30px;
+	border-radius: 3px;
+	margin-left: 35px;
+}
+.calculator .result{
+	background: #fff;
+	width: 424px;
+	margin: 0 auto;
+	height: 40px;
+	padding: 10px;
+	margin-top: 40px;
+}
+/*directory*/
+.directory{
+	width: 502px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.directory .search{
+	height: 30px;
+	border:1px solid #ccc;
+}
+.directory .search input{
+	float: left;
+	width: 470px;
+	height: 30px;
+	border: none;
+}
+.directory .search img{
+	border:none;
+	float: right;
+}
+.directory table{
+	width: 502px;
+	text-align: center;
+	margin-top: 20px;
+	border:1px solid #ccc;
+	line-height: 30px;
+	margin-bottom: -1px;
+}
+.directory table caption{
+	font-size: 14px;
+	font-weight: bold;
+}
+.directory table td,.directory table th{
+	border-bottom: 1px solid #ccc;
+}
+.directory table a{
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+	line-height: 20px;
+	padding: 0px 5px;
+	background: #ccc;
+	margin-left: 5px;
+	border-radius: 2px;
+}
+.directory .btns input{
+	padding: 3px 5px;
+	border:none;
+	outline: none;
+	background: #ccc;
+	border-radius: 5px;
+	margin: 0 auto;
+	margin-top: 20px;
+	cursor: pointer;
+}
+.directory .addBox{
+	display: none;
+	margin-top: 20px;
+	height: 60px;
+	padding: 10px;
+	background: #AB82FF;
+}
+.directory .addBox label{
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+	width: 60px;
+}
+.directory .addBox input{
+	width: 165px;
+	height: 25px;
+	margin-right: 5px;
+}
+.directory .addBox .save,.directory .addBox .cancel{
+	float: right;
+	width: 40px;
+	border:none;
+	background: #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 10px;
+	outline: none;
+}
+
+/*验证样式*/
+#login-box .error,.register-box .error{
+	display: block;
+	color: red;
+	margin-top: 5px;
+}

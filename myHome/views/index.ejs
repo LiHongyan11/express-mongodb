@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>主页</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body>
+<div class="wrap">
+	<div class="g-hd">
+		<div class="m-bg"></div>
+		<div class="m-out"><a href="/loginout">退出</a></div>
+	</div>
+	<div class="g-bd f-cb">
+		<div class="m-sidebar" id="sidebar">
+			<ul>
+				<li><a href="introduce.html" target="right">个人介绍</a></li>
+				<li><a href="calculator.html" target="right">计算器</a></li>
+				<li><a href="/directory" target="right" class="tong">通讯录</a></li>
+			</ul>
+		</div>
+		<div class="m-main" id="main">
+			<iframe src="introduce.html" id="right" name="right" width="100%" height='100%' scrolling="no" frameborder='no' border='0' marginwidth='0' marginheight='0'style="border:0;" allowTransparency="true"></iframe>
+		</div>		
+	</div>
+	<div class="g-ft">
+		制作者@李红艳
+	</div>
+</div>
+<script type="text/javascript"src='/javascripts/jquery-1.9.1.js'></script>
+<script type="text/javascript"src='/javascripts/index.js'></script>
+<script type="text/javascript">
+	$(function(){
+		$('.tong').click(function(){
+			$.ajax({
+				url:'/directory',
+				type:'get',
+				success:function(data,status){
+					if(status == 'success'){
+						if(data.code == 500){
+							alert(data.message);
+							location.href = 'login';
+						}						
+					}
+				},
+				error:function(data,status){
+					alert('进入失败');
+				}
+			});
+		});
+
+		$('.m-out a').click(function(){
+			$.ajax({
+				url:'/loginout',
+				type:'get',
+				success:function(data,status){
+					if(status == 'success'){
+						if(data.code == 500){
+							alert(data.message);
+							location.href = 'login';
+						}
+						else{
+							location.href = 'login';
+							alert(data.message);
+						}												
+					}
+
+				},
+				error:function(data,status){					
+					location.href = 'login';
+					alert($.parseJSON(data.responseText).message);
+				}
+			})
+		})
+	})
+</script>
+</body>
+</html>
