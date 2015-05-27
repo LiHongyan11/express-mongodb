@@ -67,4 +67,4 @@ submitHandler:function(){
 			}
 		});
 }
-![](https://github.com/LiHongyan11/express-mongodb/blob/master/myHome/images/add.png)</pre>
+![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/add.png)</pre>
