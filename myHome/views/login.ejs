@@ -61,32 +61,33 @@
 					maxlength: "Your password must be at most 16 characters long"
 				}
 			},
-			focusInvalid: false
-		});
-		$('#login').click(function(){
-			var acc = $('#account').val();
-			var psd = $('#password').val();
-			var data = {'account':acc,'password':psd};
+			focusInvalid: false,
+			submitHandler:function(){
+					var acc = $('#account').val();
+					var psd = $('#password').val();
+					var data = {'account':acc,'password':psd};
 
-			$.ajax({
-				url:'/login',
-				type:'post',
-				data:data,
-				success:function(data,status){
-					if(status == 'success'){
-						if(data.code == 404){
-							alert(data.message)
+					$.ajax({
+						url:'/login',
+						type:'post',
+						data:data,
+						success:function(data,status){
+							if(status == 'success'){
+								if(data.code == 404){
+									alert(data.message)
+								}
+								else{
+									location.href = 'index';
+								}
+							}
+						},
+						error:function(data,status){
+							alert($.parseJSON(data.responseText).message);
 						}
-						else{
-							location.href = 'index';
-						}
-					}
-				},
-				error:function(data,status){
-					alert($.parseJSON(data.responseText).message);
-				}
-			});
-		})
+					});
+			}
+		});
+		
 	});
 	
 </script>

@@ -78,41 +78,42 @@
                     equalTo:'Please enter the same password as above'
                 }
             },
-            focusInvalid: false
-        });
-        $('#button').click(function(){
-            var username = $('#account').val();
-            var password = $('#psd').val();
-            var password1 = $('#psd1').val();
+            focusInvalid: false,
+            submitHandler: function(){
+                    var username = $('#account').val();
+                    var password = $('#psd').val();
+                    var password1 = $('#psd1').val();
 
-            if(password != password1){
-                $('#psd').css('border','1px solid red');
-                $('#psd1').css('border','1px solid red');
-            }
-            else if(password == password1){
-                var data = {'account':username,'password':password,'password1':password1};
-
-                $.ajax({
-                    url:'/register',
-                    type:'post',
-                    data:data,
-                    success:function(data,status){
-                        if(status == 'success'){
-                            if(data.code == 500){
-                                alert(data.message);
-                            }
-                            else{
-                                location.href = 'login';
-                            }                           
-                        }
-                    },
-                    error:function(data,status){
-                        alert($.parseJSON(data.responseText).message);
+                    if(password != password1){
+                        $('#psd').css('border','1px solid red');
+                        $('#psd1').css('border','1px solid red');
                     }
-                })
-            }
-            return false;
-        })
+                    else if(password == password1){
+                        var data = {'account':username,'password':password,'password1':password1};
+
+                        $.ajax({
+                            url:'/register',
+                            type:'post',
+                            data:data,
+                            success:function(data,status){
+                                if(status == 'success'){
+                                    if(data.code == 500){
+                                        alert(data.message);
+                                    }
+                                    else{
+                                        location.href = 'login';
+                                    }                           
+                                }
+                            },
+                            error:function(data,status){
+                                alert($.parseJSON(data.responseText).message);
+                            }
+                        })
+                    }
+                    return false;
+                }
+        });
+        
     })
     </script>
 </body>

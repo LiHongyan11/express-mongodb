@@ -185,6 +185,7 @@ a{
 	text-align:center;
 	margin-left:140px;
 	border: none;
+	cursor: pointer;
 	}
 
 /*index*/
@@ -394,6 +395,6 @@ a{
 /*验证样式*/
 #login-box .error,.register-box .error{
 	display: block;
-	color: red;
+	color: orange;
 	margin-top: 5px;
 }
