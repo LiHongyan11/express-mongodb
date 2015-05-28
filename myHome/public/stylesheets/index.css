@@ -136,10 +136,10 @@ a{
 #register-box-name {
 	float: left;
 	display:inline;
-	width:80px;
+	width:100px;
 	text-align: right;
-	padding: 14px 10px 0 0;
-	margin:0 0 10px 50px;
+	padding: 10px 10px 0 0;
+	margin:0 0 10px 20px;
 }
 
 #register-box-field {
