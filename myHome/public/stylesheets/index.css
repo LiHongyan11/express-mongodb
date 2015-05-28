@@ -393,7 +393,7 @@ a{
 }
 
 /*验证样式*/
-#login-box .error,.register-box .error{
+.login-box .error,.register-box .error{
 	display: block;
 	color: orange;
 	margin-top: 5px;
