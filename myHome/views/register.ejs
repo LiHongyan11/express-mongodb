@@ -15,17 +15,17 @@
             <br>
             <br>
             <form id="form">
-                <div id="register-box-name" style="margin-top:10px;">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+                <div class="register-box-name" style="margin-top:10px;">account:
                 </div>
-                <div id="register-box-field" style="margin-top:10px;"><input name="account" class="form-register" id='account' title="Username" value="" size="40" maxlength="2048" />
+                <div class="register-box-field" style="margin-top:10px;"><input name="account" class="form-register" id='account' title="Username" value="" size="40" maxlength="2048" />
                 </div>
-                <div id="register-box-name">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
+                <div class="register-box-name">password:
                 </div>
-                <div id="register-box-field"><input type='password' name="psd" class="form-register" id='psd' title="password" value="" size="40" maxlength="2048" />
+                <div class="register-box-field"><input type='password' name="psd" class="form-register" id='psd' title="password" value="" size="40" maxlength="2048" />
                 </div>
-                <div id="register-box-name">确认密码：
+                <div class="register-box-name">passwordAgain:
                 </div>
-                <div id="register-box-field"><input type='password' name="psd1" class="form-register" id='psd1' title="password" value="" size="40" maxlength="2048" />
+                <div class="register-box-field"><input type='password' name="psd1" class="form-register" id='psd1' title="password" value="" size="40" maxlength="2048" />
                 </div>
                 <input type="submit" value="REGISTER" name="submit" id="button">
             </form>           
@@ -38,7 +38,7 @@
     $(function(){
         jQuery.validator.addMethod("stringCheck", function(value, element) {           
             return this.optional(element) || /^[a-zA-Z0-9_]+$/.test(value);           
-        }, "只能包括英文字母、数字和下划线"); 
+        }, "only contain English,number and _"); 
         $("#form").validate({
             rules: {
                 account: {
@@ -62,7 +62,7 @@
             messages: {
                 account: {
                     required: "Please enter a username",
-                    stringCheck: "用户名只能包括英文字母、数字和下划线",
+                    stringCheck: "only contain English,number and _",
                     minlength: "Your username must consist of at least 2 characters",
                     maxlength: "Your username must consist of at most 10 characters"
                 },

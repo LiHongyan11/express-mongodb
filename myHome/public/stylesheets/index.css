@@ -28,7 +28,7 @@ a{
 	
 }
 
-#login-box {
+.login-box {
 	width:333px;
 	height: 352px;
 	padding: 58px 76px 0 76px;
@@ -37,21 +37,21 @@ a{
 	background: url(../images/login-box-backg.png) no-repeat left top;
 	margin: 0 auto;
 }
-#login-box span{
+.login-box span{
 	margin-left: 100px;
 }
-#login-box span a{
+.login-box span a{
 	font-size: 14px;
 	font-weight: bold;
 	color: #fff;
 	text-decoration: underline;
 }
 
-#login-box img {
+.login-box img {
 	border:none;
 }
 
-#login-box h2 {
+.login-box h2 {
 	padding:0;
 	margin:0;
 	color: #ebebeb;
@@ -59,7 +59,7 @@ a{
 }
 
 
-#login-box-name {
+.login-box-name {
 	float: left;
 	display:inline;
 	width:80px;
@@ -68,7 +68,7 @@ a{
 	margin:0 0 7px 0;
 }
 
-#login-box-field {
+.login-box-field {
 	float: left;
 	display:inline;
 	width:230px;
@@ -123,7 +123,7 @@ a{
 	background-position-y:-50px;
 	border-radius:10px;
 }
-#register-box img {
+.register-box img {
 	border:none;
 }
 
@@ -133,16 +133,16 @@ a{
 	color: #fff;
 	font: bold 44px "Calibri", Arial;
 }
-#register-box-name {
+.register-box-name {
 	float: left;
 	display:inline;
-	width:80px;
+	width:100px;
 	text-align: right;
-	padding: 14px 10px 0 0;
-	margin:0 0 10px 50px;
+	padding: 10px 10px 0 0;
+	margin:0 0 10px 20px;
 }
 
-#register-box-field {
+.register-box-field {
 	float: left;
 	display:inline;
 	width:230px;
@@ -161,13 +161,13 @@ a{
 }
 
 
-#register-box-options  {
+.register-box-options  {
 	clear:both;
 	padding-left:87px;
 	font-size: 11px;
 }
 
-#registe-box-options a {
+.registe-box-options a {
 	color: #ebebeb;
 	font-size: 11px;
 }
