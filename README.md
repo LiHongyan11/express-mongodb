@@ -12,5 +12,5 @@ app.use('/login', routes);
 app.use('/loginout', routes);
 #####接着是发起ajax请求：
 
-![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/myHome/images/add.png)
+![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/add.png)
 
