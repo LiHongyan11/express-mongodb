@@ -23,14 +23,14 @@ app.js是项目的入口文件，里面加载所有需要依赖的模块，以�
 
 ##### 最后上这个小示例也就基本上介绍完了，包含的功能不多，但这是我接触node完成的第一个成型的例子。
 ##### 下面附上几张示例的截图：
-> login.html
+> login.html  
 ![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/login.png)
-> register.html
+> register.html  
 ![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/register.png)
-> index.html
+> index.html  
 ![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/index.png)
-> directory.html
+> directory.html  
 ![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/directory.png)
-> add.html
+> add.html  
 ![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/add.png)
 
