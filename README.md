@@ -25,6 +25,8 @@ app.js是项目的入口文件，里面加载所有需要依赖的模块，以�
 ##### 下面附上几张示例的截图：
 > login.html
 ![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/login.png)
+> register.html
+![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/register.png)
 > index.html
 ![](https://raw.githubusercontent.com/LiHongyan11/express-mongodb/master/myHome/images/index.png)
 > directory.html
