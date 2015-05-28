@@ -9,16 +9,16 @@
 
 <body>
 <div id="layout"  style="padding: 100px 0 180px 30px;">
-	<div id="login-box">
+	<div class="login-box">
 		<H2>Login</H2>
 		&nbsp;Welcome!
 		<br />
 		<br />
 		<form id="form">
-			<div id="login-box-name" style="margin-top:10px;">account:</div>
-			<div id="login-box-field" style="margin-top:10px;"><input name="account" class="form-login require" id='account' title="Username" value="" size="30"/></div>
-			<div id="login-box-name">Password:</div>
-			<div id="login-box-field"><input name="password" type="password" class="form-login require" id="password" title="Password" value="" size="30" maxlength="2048" /></div>
+			<div class="login-box-name" style="margin-top:10px;">account:</div>
+			<div class="login-box-field" style="margin-top:10px;"><input name="account" class="form-login require" id='account' title="Username" value="" size="30"/></div>
+			<div class="login-box-name">Password:</div>
+			<div class="login-box-field"><input name="password" type="password" class="form-login require" id="password" title="Password" value="" size="30" maxlength="2048" /></div>
 			<input type="submit" name="submit" id="login" value="">
 			
 			<br>
@@ -51,7 +51,7 @@
 			messages: {
 				account: {
 					required: "Please enter a username",
-					stringCheck: "用户名只能包括英文字母、数字和下划线",
+					stringCheck: "only contain English,number and _线",
 					minlength: "Your username must consist of at least 2 characters",
 					maxlength: "Your username must consist of at most 10 characters"
 				},
